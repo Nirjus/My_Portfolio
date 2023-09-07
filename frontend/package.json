@@ -58,6 +58,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
-  },
-  "proxy": "https://nirjus-portfolio-backend.vercel.app"
+  }
 }

@@ -5,12 +5,18 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { userRouter } = require("./routes/userRoute");
 const { seedUser } = require("./routes/seedRoute");
+const cors = require("cors");
 
 const app = express();
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
+app.use(cors({
+    origin:["http://localhost:3000"],
+    credentials:true,
+}))
+
 
 app.get("/", (req, res) => {
     res.status(201).json({

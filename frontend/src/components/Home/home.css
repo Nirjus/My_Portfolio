@@ -1,0 +1,25 @@
+
+.homeContainer{
+    background-color: #493dcd;
+    padding-top: 4vmax;
+    border-radius: 0 0 200px 200px;
+    border-bottom: 200px solid #493dcd;
+    position: relative;
+    z-index: 1;
+}
+
+.homeSkills{
+    transform: translateY(-200px);
+
+     /* position: relative; */
+     padding-top: 200px;
+     box-sizing: border-box;
+     perspective: 450px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+     overflow-x: hidden;
+        margin-bottom: -200px;
+    
+}

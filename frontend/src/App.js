@@ -14,11 +14,12 @@ import AdminPanel from "./components/Admin/AdminPanel";
 import Timeline from "./components/Admin/Timeline";
 import Achivements from "./components/Admin/Achivements";
 import Projects from "./components/Admin/Projects";
+import Loading from "./components/Loaders/Loading";
 import { StarsCanvas } from "./components/canvas";
 function App() {
   const dispatch = useDispatch();
 
-  const { isAuthenticated } = useSelector((state) => state.login);
+  const { isAdmin } = useSelector((state) => state.login);
   const { loading, user } = useSelector((state) => state.user);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function App() {
   return (
     <Router>
      {
-      loading? <div>Loading</div> :
+      loading? <Loading /> :
       (
         <>
          <Header />
@@ -45,19 +46,19 @@ function App() {
        } />
         <Route
           path={"/Account"}
-          element={isAuthenticated ? <AdminPanel /> : <Login />}
+          element={isAdmin ? <AdminPanel /> : <Login />}
         />
         <Route
           path={"/admin/timeline"}
-          element={isAuthenticated ? <Timeline /> : <Login />}
+          element={isAdmin ? <Timeline /> : <Login />}
         />
         <Route
           path={"/admin/achivements"}
-          element={isAuthenticated ? <Achivements /> : <Login />}
+          element={isAdmin ? <Achivements /> : <Login />}
         />
         <Route
           path={"/admin/projects"}
-          element={isAuthenticated ? < Projects/> : <Login />}
+          element={isAdmin ? < Projects/> : <Login />}
         />
       </Routes>
      

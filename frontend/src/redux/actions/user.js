@@ -1,12 +1,11 @@
 import axios from "axios";
-import { server } from "../../server";
 
 export const getUser = () => async (dispatch)  =>{
       try {
         dispatch({
             type: "GET_USER_REQUEST",
         });
-        const {data} = await axios.get(`${server}/api/user/users`);
+        const {data} = await axios.get(`/api/user/users`);
 
         dispatch({
             type: "GET_USER_SUCCESS",
@@ -27,7 +26,7 @@ export const login = (email, password ) => async (dispatch)  =>{
       dispatch({
           type: "LOGIN_REQUEST",
       });
-      const {data} = await axios.post(`${server}/api/user/login`,{
+      const {data} = await axios.put(`/api/user/login`,{
         email,password
       },{
         headers:{
@@ -53,7 +52,7 @@ export const logout = () => async (dispatch)  =>{
       dispatch({
           type: "LOGOUT_REQUEST",
       });
-      const {data} = await axios.get(`${server}/api/user/logout`);
+      const {data} = await axios.put(`/api/user/logout`);
 
       dispatch({
           type: "LOGOUT_SUCCESS",
@@ -73,7 +72,7 @@ export const loadUser = () => async (dispatch)  =>{
     dispatch({
         type: "LOAD_USER_REQUEST",
     });
-    const {data} = await axios.get(`${server}/api/user/me`);
+    const {data} = await axios.get(`/api/user/me`);
 
     dispatch({
         type: "LOAD_USER_SUCCESS",
@@ -93,7 +92,7 @@ export const updateUser = (name,email, password,skills,about ) => async (dispatc
     dispatch({
         type: "UPDATE_USER_REQUEST",
     });
-    const {data} = await axios.put(`${server}/api/user/admin/update`,{
+    const {data} = await axios.put(`/api/user/admin/update`,{
       name,email, password,skills,about
     },{
       headers:{
@@ -120,7 +119,7 @@ export const addTimeline = (title, description,date,company,image ) => async (di
     dispatch({
         type: "ADD_TIMELINE_REQUEST",
     });
-    const {data} = await axios.post(`${server}/api/user/admin/timeline/add`,{
+    const {data} = await axios.post(`/api/user/admin/timeline/add`,{
       title, description,date,company,image
     },{
       headers:{
@@ -146,7 +145,7 @@ export const deleteTimeline = (id) => async (dispatch)  =>{
     dispatch({
         type: "DELETE_TIMELINE_REQUEST",
     });
-    const {data} = await axios.delete(`${server}/api/user/admin/timeline/${id}`);
+    const {data} = await axios.delete(`/api/user/admin/timeline/${id}`);
 
     dispatch({
         type: "DELETE_TIMELINE_SUCCESS",
@@ -167,7 +166,7 @@ export const addAchivements = (title, url,image ) => async (dispatch)  =>{
     dispatch({
         type: "ADD_ACHIVEMENTS_REQUEST",
     });
-    const {data} = await axios.post(`${server}/api/user/admin/achivements/add`,{
+    const {data} = await axios.post(`/api/user/admin/achivements/add`,{
       title, url,image
     },{
       headers:{
@@ -193,7 +192,7 @@ export const deleteAchivement = (id) => async (dispatch)  =>{
     dispatch({
         type: "DELETE_ACHIVEMENTS_REQUEST",
     });
-    const {data} = await axios.delete(`${server}/api/user/admin/achivements/${id}`);
+    const {data} = await axios.delete(`/api/user/admin/achivements/${id}`);
 
     dispatch({
         type: "DELETE_ACHIVEMENTS_SUCCESS",
@@ -214,7 +213,7 @@ export const addProject = (url, title, image, description, technology ) => async
     dispatch({
         type: "ADD_PROJECTS_REQUEST",
     });
-    const {data} = await axios.post(`${server}/api/user/admin/projects/add`,{
+    const {data} = await axios.post(`/api/user/admin/projects/add`,{
       url, title, image, description, technology
     },{
       headers:{
@@ -240,7 +239,7 @@ export const deleteProject = (id) => async (dispatch)  =>{
     dispatch({
         type: "DELETE_PROJECTS_REQUEST",
     });
-    const {data} = await axios.delete(`${server}/api/user/admin/project/${id}`);
+    const {data} = await axios.delete(`/api/user/admin/project/${id}`);
 
     dispatch({
         type: "DELETE_PROJECTS_SUCCESS",
@@ -262,7 +261,7 @@ export const contactUs = (name, email, message ) => async (dispatch)  =>{
     dispatch({
         type: "CONTACT_US_REQUEST",
     });
-    const {data} = await axios.post(`${server}/api/user/contact`,{
+    const {data} = await axios.post(`/api/user/contact`,{
       name, email, message
     },{
       headers:{

@@ -26,31 +26,34 @@ export const loginReducer = createReducer(
     {
     LOGIN_REQUEST: (state) => {
         state.loading = true;
-        state.isAuthenticated = false;
+       
+        state.isAdmin = false;
     },
     LOGIN_SUCCESS: (state, action) => {
         state.loading = false;
-        state.isAuthenticated = true;
+        
+        state.isAdmin = true;
         state.message = action.payload;
     },
     LOGIN_FAILURE: (state, action) => {
         state.loading = false;
-         state.isAuthenticated = false;
+        
+         state.isAdmin = true;
         state.error = action.payload;
     },
 
     LOAD_USER_REQUEST: (state) => {
         state.loading = true;
-        state.isAuthenticated = false;
+        state.isAdmin = false;
     },
     LOAD_USER_SUCCESS: (state, action) => {
         state.loading = false;
-        state.isAuthenticated = true;
+        state.isAdmin = true;
         state.user = action.payload;
     },
     LOAD_USER_FAILURE: (state, action) => {
         state.loading = false;
-         state.isAuthenticated = false;
+        state.isAdmin = false;
         state.error = action.payload;
     },
 
@@ -60,13 +63,13 @@ export const loginReducer = createReducer(
     },
     LOGOUT_SUCCESS: (state, action) => {
         state.loading = false;
-        state.isAuthenticated = false;
+        state.isAdmin = false;
         state.user = null;
         state.message = action.payload;
     },
     LOGOUT_FAILURE: (state, action) => {
         state.loading = false;
-         state.isAuthenticated = true;
+        state.isAdmin = false
         state.error = action.payload;
     },
     CLEAR_ERRORS: (state) => {

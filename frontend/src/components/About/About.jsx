@@ -60,7 +60,7 @@ const About = ({about}) => {
      animate={{x:0,  opacity:1, rotateZ:-360}}
      transition={{duration:2, delay:0.5}}
     className="relative bg-[#f6f0ffe6] h-[500px] w-[500px] max-800px:w-fit max-800px:h-[300px] rounded-lg m-auto overflow-hidden group">
-  <img src={myPic} className="object-cover w-full h-full rounded-lg transition-opacity duration-300 group-hover:opacity-70" alt="pic" />
+  <img src={about.avatar.url} className="object-cover w-full h-full rounded-lg transition-opacity duration-300 group-hover:opacity-70" alt="pic" />
   <div className="absolute bottom-0 left-0 right-0 p-4 bg-[#ffffff47] backdrop-blur-md transform transition translate-y-full opacity-0 duration-300 group-hover:translate-y-0 group-hover:opacity-100">
     <h2 className="text-[25px] font-bold text-[#252525] my-1 text-center">{about.name}</h2>
     <p className="text-gray-800 text-center">{about.title}</p>

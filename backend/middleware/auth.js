@@ -1,28 +1,27 @@
-
 const jwt = require("jsonwebtoken");
-const { jwtSecretKey } = require("../secret/secret");
+const User = require("../model/User");
 
-const isAuthenticated = async (req, res, next) => {
-try {
-    const jwt_token = req.cookies.token;
-  
-    if(!jwt_token){
-        return res.status(400).json({
-            success: false,
-            message: "Login to Access this resorces",
-        })
+
+const isAdmin = async (req, res, next) => {
+    try {
+         
+          const user = await User.findOne();
+
+          if(user.isAdmin === false){
+            return res.status(400).json({
+                success: false,
+                message: "You are not allow to access this resorces"
+            })
+          }
+          req.user = user;
+         
+        next();
+    } catch (error) {
+        next(error);
+    }
     }
 
-    const decoded = jwt.verify(jwt_token, jwtSecretKey);
-
-    req.user = decoded.user;
-   
-    next();
-} catch (error) {
-    next(error);
-}
-}
-
 module.exports = {
-    isAuthenticated
+    
+    isAdmin
 }

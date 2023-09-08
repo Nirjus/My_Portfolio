@@ -16,17 +16,14 @@ const loginController = async (req, res, next) => {
         message: "Invalid Email or Password",
       });
     }
+    
+     await User.findByIdAndUpdate(
+      user.id,
+      {isAdmin: true},
+      {new: true}
+     )
 
-    const token = jwt.sign({ user }, jwtSecretKey);
-
-    return res
-      .status(200)
-      .cookie("token", token, {
-        expires: new Date(Date.now() + 600000),
-        httpOnly: true,
-        secure: true,
-      })
-      .json({
+    return res.status(200).json({
         success: true,
         message: "LoggedIn Successfully",
       });
@@ -37,14 +34,16 @@ const loginController = async (req, res, next) => {
 
 const logoutController = async (req, res, next) => {
   try {
-    return res
-      .status(200)
-      .cookie("token", null, {
-        expires: new Date(Date.now()),
-        httpOnly: true,
-        secure: true,
-      })
-      .json({
+     
+   const user = req.user;
+ 
+   await User.findByIdAndUpdate(
+    user.id,
+    {isAdmin: false},
+    {new: true}
+   )
+   
+    return res.status(200).json({
         success: true,
         message: "Logout Successfully",
       });
@@ -69,7 +68,7 @@ const getUser = async (req, res, next) => {
 
 const myProfile = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     res.status(200).json({
       success: true,
@@ -106,7 +105,7 @@ const contact = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     const { name, email, password, skills, about } = req.body;
 
@@ -285,7 +284,7 @@ const addTimeline = async (req, res, next) => {
   try {
     const { title, description, date, company, image } = req.body;
   
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "myPortFolio",
@@ -316,7 +315,7 @@ const addAchivements = async (req, res, next) => {
   try {
     const { url, title, image } = req.body;
 
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "myPortFolio",
@@ -344,7 +343,7 @@ const addProject = async (req, res, next) => {
   try {
     const { url, title, image, description, technology } = req.body;
    
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
       
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "myPortFolio",
@@ -375,7 +374,7 @@ const deleteTimeline = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     const timelineImage = user.timeline.find((item) => item._id == id);
 
@@ -400,7 +399,7 @@ const deleteAchivement = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     const achivement = user.achivements.find((item) => item._id == id);
 
@@ -423,7 +422,7 @@ const deleteProject = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne();
 
     const project = user.projects.find((item) => item._id == id);
     if (project) {

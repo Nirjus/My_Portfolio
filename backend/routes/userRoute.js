@@ -13,22 +13,22 @@ const {
   deleteProject,
   deleteAchivement,
 } = require("../controller/userController");
-const { isAuthenticated } = require("../middleware/auth");
+const {  isAdmin } = require("../middleware/auth");
 
 const userRouter = express.Router();
 
-userRouter.post("/login", loginController);
-userRouter.get("/logout", logoutController);
+userRouter.put("/login",loginController);
+userRouter.put("/logout",isAdmin, logoutController);
 userRouter.get("/users", getUser);
-userRouter.get("/me", isAuthenticated, myProfile);
-userRouter.put("/admin/update", isAuthenticated, updateUser);
-userRouter.post("/admin/timeline/add", isAuthenticated, addTimeline);
-userRouter.post("/admin/achivements/add", isAuthenticated, addAchivements);
-userRouter.post("/admin/projects/add", isAuthenticated, addProject);
+userRouter.get("/me", isAdmin, myProfile);
+userRouter.put("/admin/update", isAdmin, updateUser);
+userRouter.post("/admin/timeline/add", isAdmin, addTimeline);
+userRouter.post("/admin/achivements/add", isAdmin, addAchivements);
+userRouter.post("/admin/projects/add", isAdmin, addProject);
 
-userRouter.delete("/admin/timeline/:id", isAuthenticated, deleteTimeline);
-userRouter.delete("/admin/project/:id", isAuthenticated, deleteProject);
-userRouter.delete("/admin/achivements/:id", isAuthenticated, deleteAchivement);
+userRouter.delete("/admin/timeline/:id", isAdmin, deleteTimeline);
+userRouter.delete("/admin/project/:id", isAdmin, deleteProject);
+userRouter.delete("/admin/achivements/:id", isAdmin, deleteAchivement);
 
 userRouter.post("/contact", contact);
 

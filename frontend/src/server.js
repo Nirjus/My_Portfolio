@@ -1,1 +1,0 @@
-export const server = "https://nirjus-portfolio-backend.vercel.app";

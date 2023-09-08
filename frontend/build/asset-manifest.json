@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6b7be32c.css",
+    "main.js": "/static/js/main.2130a7f4.js",
+    "static/media/my pic.png": "/static/media/my pic.772668bd1dec9c551a3a.png",
+    "static/media/full satck developer.png": "/static/media/full satck developer.fc341ff187555e495679.png",
+    "static/media/NIRJUS LOGO TRANSPARENT.png": "/static/media/NIRJUS LOGO TRANSPARENT.6e0e2b1300b2f60572f7.png",
+    "static/media/backend developer.png": "/static/media/backend developer.ea2b16ddb02ab1e09760.png",
+    "static/media/frontend developer.png": "/static/media/frontend developer.8aa0adeaa3e3491b6fb1.png",
+    "index.html": "/index.html",
+    "main.6b7be32c.css.map": "/static/css/main.6b7be32c.css.map",
+    "main.2130a7f4.js.map": "/static/js/main.2130a7f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b7be32c.css",
+    "static/js/main.2130a7f4.js"
+  ]
+}

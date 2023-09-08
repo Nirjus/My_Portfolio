@@ -1,6 +1,7 @@
 const express = require("express");
 const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 const { userRouter } = require("./routes/userRoute");
 const { seedUser } = require("./routes/seedRoute");
 
@@ -10,17 +11,13 @@ app.use(express.urlencoded({extended: true, limit:"50mb"}));
 app.use(cookieParser());
 
 
-
-app.get("/", (req, res) => {
-    res.status(201).json({
-        success: true,
-        message: "Hello User Backend is Running"
-    })
-})
- 
 app.use("/api/user", userRouter);
 app.use("/api/seed", seedUser);
+app.use(express.static(path.resolve("./frontend/build")));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("./frontend/build/index.html"));
+});
 
 //  client error
 app.use((req, res, next) => {

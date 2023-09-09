@@ -1,12 +1,12 @@
 import React from 'react'
 import {Tilt} from "react-tilt"
-import "./about.css";
 import { motion } from 'framer-motion';
 import { styles } from '../../styles';
 import img1 from "../../assets/images/backend developer.png";
 import img2 from "../../assets/images/frontend developer.png";
 import img3 from "../../assets/images/full satck developer.png";
-import myPic from "../../assets/images/my pic.png";
+
+
 const About = ({about}) => {
 
    const ServiceCard = ({ title, icon}) => {
@@ -30,7 +30,7 @@ const About = ({about}) => {
    }
 
   return (
-   <div className=" w-full min-h-screen h-auto mx-auto p-4 about flex justify-evenly max-800px:flex-col">
+   <div className=" w-full min-h-screen h-auto mx-auto p-4 bg-[#2a1250] flex justify-evenly max-800px:flex-col">
     <div className=" m-auto flex flex-col gap-10">
     <motion.div 
      initial={{y:-50,opacity: 0}}

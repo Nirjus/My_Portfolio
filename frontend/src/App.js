@@ -44,8 +44,12 @@ function App() {
          <StarsCanvas/>
        </div>
        } />
-        <Route
+       <Route
           path={"/Account"}
+          element={ <Login />}
+        />
+        <Route
+          path={"/admin"}
           element={isAdmin ? <AdminPanel /> : <Login />}
         />
         <Route

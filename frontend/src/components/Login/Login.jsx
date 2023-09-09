@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import {useDispatch, useSelector} from "react-redux"
 import { login } from "../../redux/actions/user";
 import { useAlert } from "react-alert";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
@@ -16,18 +18,22 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email,password));
+    
   };
   
    useEffect(() => {
     if(error){
       alert.error(error);
       dispatch({type: "CLEAR_ERRORS"})
+      navigate("/Account");
     }
     if(message){
       alert.success(message);
       dispatch({type: "CLEAR_MESSAGE"})
+      navigate("/admin");
     }
-   },[alert,error, message, dispatch])
+  
+   },[alert,error, message, dispatch,navigate])
 
   return (
     <div className=" w-full min-h-screen h-auto flex items-center justify-center bg-[#120b2b]">

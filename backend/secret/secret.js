@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 
 dotenv.config({
-    path:"./backend/secret/.env"
+    path:"./secret/.env"
 })
 
 const port = process.env.PORT || "5000";

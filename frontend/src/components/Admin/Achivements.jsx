@@ -114,7 +114,7 @@ const Achivements = () => {
             </div>
             <div className="flex justify-between gap-2 mx-auto max-1000px:flex-col">
               <Link
-                to={"/Account"}
+                to={"/admin"}
                 className=" flex gap-4 items-center justify-center border border-neutral-700 p-2 hover:scale-105 hover:bg-slate-200 duration-700"
               >
                 BACK <MdKeyboardBackspace />

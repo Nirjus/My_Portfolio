@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="flex gap-4 flex-col items-center w-full border-r-4 border-white max-800px:w-[80%] max-800px:border-b-2 max-800px:border-r-0">
         <h1 className=" p-1 text-[21px] font-bold">Heyy! I am ,Nirjus</h1>
         <div className=" p-1">
-          <p>Follow Us on.</p>
+          <p>Follow me on.</p>
           <div className=" flex gap-3 m-1">
             <a href={"https://github.com/Nirjus"} className=" hover:text-[#2ab5ff]" target="blank">
               <AiFillGithub size={35} />

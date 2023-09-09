@@ -82,6 +82,7 @@ const AdminPanel = () => {
   };
   const logoutHandler = () => {
     dispatch(logout());
+    window.location.reload(true);
   };
 
   useEffect(() => {
@@ -92,6 +93,7 @@ const AdminPanel = () => {
     if (message) {
       alert.success(message);
       dispatch({ type: "CLEAR_MESSAGE" });
+     
     }
     if (loginMessage) {
       alert.success(loginMessage);

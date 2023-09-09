@@ -33,12 +33,11 @@ export const login = (email, password ) => async (dispatch)  =>{
        "Content-Type": "application/json",
         }
       });
-
       dispatch({
           type: "LOGIN_SUCCESS",
           payload: data.message
-      });
-
+      })
+    
     } catch (error) {
       dispatch({
           type: "LOGIN_FAILURE",

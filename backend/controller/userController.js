@@ -17,7 +17,7 @@ const loginController = async (req, res, next) => {
       });
     }
     
-     await User.findByIdAndUpdate(
+  await User.findByIdAndUpdate(
       user.id,
       {isAdmin: true},
       {new: true}

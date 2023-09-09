@@ -15,16 +15,11 @@ app.use(cors({
     credentials: true,
 }))
 
-
 app.use("/api/user", userRouter);
 app.use("/api/seed", seedUser);
-// app.use(express.static(path.resolve("./frontend/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve("./frontend/build/index.html"));
-// });
 
-app.use("/", (req, res) => {
+app.use("/test", (req, res) => {
     res.status(200).json({
         success: true,
         message: "Backend is running"

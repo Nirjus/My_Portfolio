@@ -12,6 +12,7 @@ app.use(cookieParser());
 
 app.use(cors({
     origin:"https://nirjus.vercel.app",
+    credentials:true,
 }))
 
 

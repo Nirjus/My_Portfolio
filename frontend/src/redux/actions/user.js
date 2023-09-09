@@ -6,7 +6,7 @@ export const getUser = () => async (dispatch)  =>{
         dispatch({
             type: "GET_USER_REQUEST",
         });
-        const {data} = await axios.get(`${server}/api/user/users`);
+        const {data} = await axios.get(`${server}/api/user/users`,{withCredentials:true});
 
         dispatch({
             type: "GET_USER_SUCCESS",
@@ -29,7 +29,7 @@ export const login = (email, password ) => async (dispatch)  =>{
       });
       const {data} = await axios.put(`${server}/api/user/login`,{
         email,password
-      },{
+      },{withCredentials:true},{
         headers:{
        "Content-Type": "application/json",
         }
@@ -52,7 +52,7 @@ export const logout = () => async (dispatch)  =>{
       dispatch({
           type: "LOGOUT_REQUEST",
       });
-      const {data} = await axios.put(`${server}/api/user/logout`);
+      const {data} = await axios.put(`${server}/api/user/logout`,{withCredentials: true});
 
       dispatch({
           type: "LOGOUT_SUCCESS",
@@ -72,7 +72,7 @@ export const loadUser = () => async (dispatch)  =>{
     dispatch({
         type: "LOAD_USER_REQUEST",
     });
-    const {data} = await axios.get(`${server}/api/user/me`);
+    const {data} = await axios.get(`${server}/api/user/me`,{withCredentials: true});
 
     dispatch({
         type: "LOAD_USER_SUCCESS",
@@ -94,7 +94,7 @@ export const updateUser = (name,email, password,skills,about ) => async (dispatc
     });
     const {data} = await axios.put(`${server}/api/user/admin/update`,{
       name,email, password,skills,about
-    },{
+    },{withCredentials:true},{
       headers:{
      "Content-Type": "application/json",
       }
@@ -121,7 +121,7 @@ export const addTimeline = (title, description,date,company,image ) => async (di
     });
     const {data} = await axios.post(`${server}/api/user/admin/timeline/add`,{
       title, description,date,company,image
-    },{
+    },{withCredentials: true},{
       headers:{
      "Content-Type": "application/json",
       }
@@ -145,7 +145,7 @@ export const deleteTimeline = (id) => async (dispatch)  =>{
     dispatch({
         type: "DELETE_TIMELINE_REQUEST",
     });
-    const {data} = await axios.delete(`${server}/api/user/admin/timeline/${id}`);
+    const {data} = await axios.delete(`${server}/api/user/admin/timeline/${id}`,{withCredentials: true});
 
     dispatch({
         type: "DELETE_TIMELINE_SUCCESS",
@@ -168,7 +168,7 @@ export const addAchivements = (title, url,image ) => async (dispatch)  =>{
     });
     const {data} = await axios.post(`${server}/api/user/admin/achivements/add`,{
       title, url,image
-    },{
+    },{withCredentials:true},{
       headers:{
      "Content-Type": "application/json",
       }
@@ -192,7 +192,7 @@ export const deleteAchivement = (id) => async (dispatch)  =>{
     dispatch({
         type: "DELETE_ACHIVEMENTS_REQUEST",
     });
-    const {data} = await axios.delete(`${server}/api/user/admin/achivements/${id}`);
+    const {data} = await axios.delete(`${server}/api/user/admin/achivements/${id}`,{withCredentials:true});
 
     dispatch({
         type: "DELETE_ACHIVEMENTS_SUCCESS",
@@ -215,7 +215,7 @@ export const addProject = (url, title, image, description, technology ) => async
     });
     const {data} = await axios.post(`${server}/api/user/admin/projects/add`,{
       url, title, image, description, technology
-    },{
+    },{withCredentials: true},{
       headers:{
      "Content-Type": "application/json",
       }
@@ -239,7 +239,7 @@ export const deleteProject = (id) => async (dispatch)  =>{
     dispatch({
         type: "DELETE_PROJECTS_REQUEST",
     });
-    const {data} = await axios.delete(`${server}/api/user/admin/project/${id}`);
+    const {data} = await axios.delete(`${server}/api/user/admin/project/${id}`, {withCredentials:true});
 
     dispatch({
         type: "DELETE_PROJECTS_SUCCESS",
@@ -263,7 +263,7 @@ export const contactUs = (name, email, message ) => async (dispatch)  =>{
     });
     const {data} = await axios.post(`${server}/api/user/contact`,{
       name, email, message
-    },{
+    },{withCredentials: true},{
       headers:{
      "Content-Type": "application/json",
       }

@@ -1,7 +1,7 @@
 const express = require("express");
 const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
-const path = require("path");
+// const path = require("path");
 const { userRouter } = require("./routes/userRoute");
 const { seedUser } = require("./routes/seedRoute");
 
@@ -13,11 +13,18 @@ app.use(cookieParser());
 
 app.use("/api/user", userRouter);
 app.use("/api/seed", seedUser);
-app.use(express.static(path.resolve("./frontend/build")));
+// app.use(express.static(path.resolve("./frontend/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("./frontend/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve("./frontend/build/index.html"));
+// });
+
+app.use("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Backend is running"
+    })
+})
 
 //  client error
 app.use((req, res, next) => {

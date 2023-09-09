@@ -1,1 +1,1 @@
-export const server = "https://nirjus-portfolio-server.vercel.app"
+export const server = "https://my-portfolio-backend-sycy.onrender.com"

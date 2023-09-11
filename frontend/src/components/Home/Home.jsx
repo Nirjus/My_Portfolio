@@ -8,7 +8,7 @@ import { ComputersCanvas, StarsCanvas } from "../canvas";
 import { styles } from "../../styles";
 import { Link } from "react-router-dom";
 import AchivementCard from "../AchivementCard/AchivementCard";
-
+import myImg from "../../assets/images/my pic.png";
 const Home = ({ timeline, achivements, skills }) => {
   return (
     <div className="home">
@@ -44,8 +44,11 @@ const Home = ({ timeline, achivements, skills }) => {
           </div>
         </div>
        
-       <div className=" w-full h-[700px]">
+       <div className=" w-full h-[700px] max-800px:hidden">
        <ComputersCanvas />
+       </div>
+       <div className=" w-full h-[500px] 800px:hidden absolute top-[300px]">
+        <img src={myImg} alt="" className=" w-[500px]  object-contain rounded-[50%] grayscale "/>
        </div>
         <div className=" absolute bottom-1 w-full flex justify-center items-center">
           <Link to={"/about"}>

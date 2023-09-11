@@ -1,9 +1,15 @@
-
+.homeCanvas{
+    background-image: url("../../assets/images/black-Theme1.jpg");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
 .homeContainer{
-    background-color: #493dcd;
+    margin-top: -20vh;
+    background-color: #564bd2;
     padding-top: 4vmax;
-    border-radius: 0 0 200px 200px;
-    border-bottom: 200px solid #493dcd;
+    border-radius: 160px 160px 200px 200px;
+    border-bottom: 200px solid #564bd2;
     position: relative;
     z-index: 1;
 }
@@ -13,6 +19,7 @@
 
      /* position: relative; */
      padding-top: 200px;
+     padding-bottom: 250px;
      box-sizing: border-box;
      perspective: 450px;
      display: flex;
@@ -22,4 +29,10 @@
      overflow-x: hidden;
         margin-bottom: -200px;
     
+}
+.homeachivement{
+    transform: translateY(-200px);
+    margin-bottom: -200px;
+    border-radius: 200px 200px 0 0;
+    background-color: #564bd2;
 }

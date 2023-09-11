@@ -13,16 +13,15 @@ const Home = ({ timeline, achivements, skills }) => {
   return (
     <div className="home">
       <div className=" top-0 z-[20] sticky">
-      <div className=" w-full h-[40px] flex justify-end px-[20px] max-800px:justify-center items-center flex-row gap-14 text-[cyan] bg-[#ffffff34] font-bold absolute top-0  z-10">
+      <div className=" w-full h-[40px] flex justify-end px-[20px] max-800px:justify-center items-center flex-row gap-10 text-[cyan] bg-gradient-to-l from-[#ffffff3e] to-[#ffffff14]  font-bold absolute top-0  z-10">
         <HashLink to={"/#timeline"} className=" hover:text-[#27baf9] duration-300">Timeline</HashLink>
         <HashLink to={"/#skills"}  className=" hover:text-[#27baf9] duration-300">Skills</HashLink>
         <HashLink to={"/#achivements"}  className=" hover:text-[#27baf9] duration-300">Achivements</HashLink>
         </div>
       </div>
-      <section className=" w-full h-screen mx-auto ">
-        <StarsCanvas />
+      <section className=" homeCanvas w-full h-[120vh] mx-auto ">
         <div
-          className={` absolute inset-0 top-[80px] max-w-7xl mx-auto flex flex-row items-start gap-5 ${styles.paddingX}`}
+          className={` absolute inset-0 top-[80px] max-w-7xl  mx-auto  flex flex-row items-start gap-5 ${styles.paddingX}`}
         >
          
           <div className=" flex-col justify-center items-center mt-5 flex">
@@ -44,8 +43,10 @@ const Home = ({ timeline, achivements, skills }) => {
             </p>
           </div>
         </div>
-
-        <ComputersCanvas />
+       
+       <div className=" w-full h-[700px]">
+       <ComputersCanvas />
+       </div>
         <div className=" absolute bottom-1 w-full flex justify-center items-center">
           <Link to={"/about"}>
             <div className=" w-[25px] h-[50px] rounded-3xl border-2 border-white flex justify-center items-start p-2">
@@ -76,31 +77,31 @@ const Home = ({ timeline, achivements, skills }) => {
         <TimeLine timeLine={timeline} />
       </div>
 
-      <div className="homeSkills w-full min-h-[120vh] px-10 py-10 h-auto" >
+      <div className="homeSkills w-full min-h-[140vh] px-10 py-10"  id="skills" >
         <StarsCanvas />
         <motion.h2
           initial={{ x: -170, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 1, type: "just" }}
-          className={`${styles.heroHeadText} text-white text-center min-h-[120px] pt-5`}
-          id="skills"
+          className={`${styles.heroHeadText} text-white text-center`}
+  
         >
           SKILLS
         </motion.h2>
 
         <SkillBolls skills={skills} />
       </div>
-      <div className="homeachivement w-full min-h-screen h-auto p-2 bg-[#493dcd]" id="achivements">
+      <div className="homeachivement w-full min-h-screen h-auto p-2 " id="achivements">
         <motion.h3
           initial={{ y: -70, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "just", duration: 1, delay: 0.3 }}
-          className={`${styles.heroHeadText} !text-white text-center my-14`}
+          className={`${styles.heroHeadText} !text-white text-center my-14 pt-10`}
         >
           ACHIVEMENTS.
         </motion.h3>
 
-        <div className=" flex flex-wrap w-[85%] gap-[40px] justify-center m-auto">
+        <div className=" flex flex-wrap w-[85%] justify-evenly m-auto">
           {achivements.map((i) => (
             <AchivementCard
               key={i._id}

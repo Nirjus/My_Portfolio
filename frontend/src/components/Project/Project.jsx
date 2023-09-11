@@ -1,4 +1,5 @@
 import React from "react";
+import "./project.css";
 import {  AiFillProject } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
@@ -58,7 +59,7 @@ export const ProjectCard = ({
 const Project = ({ projects }) => {
 
   return (
-    <div className="w-full min-h-screen h-auto bg-[#201344]">
+    <div className=" projectContainer w-full min-h-screen h-auto">
       <motion.h1
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}

@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <ReactNavbar 
      navColor1="white"
-     navColor2="hsl(219,48%,8%)"
-     navColor3="hsl(219,70%,8%)"
-     navColor4="hsl(219,90%,8%)"
+     navColor2="#141034"
+     navColor3="#1f1b42"
+     navColor4="#2a264f"
      burgerColor="hsl(250,100%,75%)"
      burgerColorHover="hsl(350,100%,75%)"
      logo={logo}

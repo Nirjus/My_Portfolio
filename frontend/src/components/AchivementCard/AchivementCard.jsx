@@ -17,7 +17,7 @@ const AchivementCard = ({ url, imgSrc, title, isAdmin = false }) => {
         <img
           src={imgSrc}
           alt={title}
-          className=" border-t-[6px]  border-[#717171] bg-transparent object-contain overflow-y-hidden w-full h-[250px] rounded-lg"
+          className=" border-t-[6px]  border-[#717171] bg-transparent object-contain overflow-y-hidden w-full h-[250px] max-800px:h-[200px] rounded-lg"
         />
         <p className=" absolute translate-y-[-120px] h-[120px] w-[280px] bg-[#a3a3a3df] max-800px:h-[80px] max-800px:translate-y-[-80px] text-blue-950 font-extrabold max-800px:w-[200px] max-800px:text-[20px] rounded-b-lg pt-7 text-[25px] max-800px:p-3">
           {title}

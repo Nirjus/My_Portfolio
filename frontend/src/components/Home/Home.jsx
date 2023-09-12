@@ -81,8 +81,10 @@ const Home = ({ timeline, achivements, skills }) => {
         <TimeLine timeLine={timeline} />
       </div>
 
-      <div className="homeSkills w-full min-h-[140vh] px-10 py-10"  id="skills" >
-        <StarsCanvas />
+      <div className="homeSkills w-full min-h-[140vh] px-10 py-10 max-800px:bg-[#060310b5]"  id="skills" >
+       <div className=" max-800px:hidden">
+       <StarsCanvas />
+       </div>
         <motion.h2
           initial={{ x: -170, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}

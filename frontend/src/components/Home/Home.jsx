@@ -20,6 +20,7 @@ const Home = ({ timeline, achivements, skills }) => {
         </div>
       </div>
       <section className=" homeCanvas w-full h-[120vh] mx-auto ">
+     
         <div
           className={` absolute inset-0 top-[80px] max-w-7xl  mx-auto  flex flex-row items-start gap-5 ${styles.paddingX}`}
         >
@@ -42,14 +43,14 @@ const Home = ({ timeline, achivements, skills }) => {
               web application.
             </p>
           </div>
+         
         </div>
-       
-       <div className=" w-full h-[700px] max-800px:hidden">
+        <div className=" w-full h-full">
        <ComputersCanvas />
        </div>
-       <div className=" w-full h-[500px] 800px:hidden absolute top-[300px]">
+       {/* <div className=" w-full h-[500px] 800px:hidden absolute top-[300px]">
         <img src={myImg} alt="" className=" w-[500px]  object-contain rounded-[50%] grayscale "/>
-       </div>
+       </div> */}
         <div className=" absolute bottom-1 w-full flex justify-center items-center">
           <Link to={"/about"}>
             <div className=" w-[25px] h-[50px] rounded-3xl border-2 border-white flex justify-center items-start p-2">

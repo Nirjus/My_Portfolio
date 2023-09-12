@@ -30,7 +30,7 @@ const About = ({about}) => {
    }
 
   return (
-   <div className=" w-full min-h-screen h-auto mx-auto p-4 bg-[#341764] flex justify-evenly max-800px:flex-col">
+   <div className=" w-full min-h-screen h-auto mx-auto p-4 bg-[#29124f] flex justify-evenly max-800px:flex-col">
     <div className=" m-auto flex flex-col gap-10">
     <motion.div 
      initial={{y:-50,opacity: 0}}

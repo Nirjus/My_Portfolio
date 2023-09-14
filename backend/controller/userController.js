@@ -56,7 +56,7 @@ const getUser = async (req, res, next) => {
   try {
     const user = await User.findOne().select("-password -email");
 
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "User is return",
       user,
@@ -70,7 +70,7 @@ const myProfile = async (req, res, next) => {
   try {
     const user = await User.findOne();
 
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "User is return",
       user,
@@ -302,7 +302,7 @@ const addTimeline = async (req, res, next) => {
     });
     
     await user.save();
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "Add to Timeline",
     });
@@ -330,7 +330,7 @@ const addAchivements = async (req, res, next) => {
       },
     });
     await user.save();
-    res.status(200).json({
+  return res.status(200).json({
       success: true,
       message: "Add to Achivements",
     });
@@ -360,7 +360,7 @@ const addProject = async (req, res, next) => {
       },
     });
     await user.save();
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "Add to Projects",
     });
@@ -385,7 +385,7 @@ const deleteTimeline = async (req, res, next) => {
     user.timeline = user.timeline.filter((item) => item._id != id);
 
     await user.save();
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "Delete from Timeline",
     });
@@ -409,7 +409,7 @@ const deleteAchivement = async (req, res, next) => {
     user.achivements = user.achivements.filter((item) => item._id != id);
 
     await user.save();
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "Achivement deleted successfully",
     });
@@ -431,7 +431,7 @@ const deleteProject = async (req, res, next) => {
     user.projects = user.projects.filter((item) => item._id != id);
 
     await user.save();
-    res.status(200).json({
+  return res.status(200).json({
       success: true,
       message: "Project deleted successfully",
     });

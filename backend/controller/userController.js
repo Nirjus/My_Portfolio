@@ -54,7 +54,7 @@ const logoutController = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
   try {
-    const user = await User.findOne().select("-password -email");
+    const user = await User.findOne({}).select("-password -email");
 
    return res.status(200).json({
       success: true,
@@ -68,7 +68,7 @@ const getUser = async (req, res, next) => {
 
 const myProfile = async (req, res, next) => {
   try {
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
    return res.status(200).json({
       success: true,
@@ -105,7 +105,7 @@ const contact = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   try {
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
     const { name, email, password, skills, about } = req.body;
 
@@ -284,7 +284,7 @@ const addTimeline = async (req, res, next) => {
   try {
     const { title, description, date, company, image } = req.body;
   
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "myPortFolio",
@@ -315,7 +315,7 @@ const addAchivements = async (req, res, next) => {
   try {
     const { url, title, image } = req.body;
 
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "myPortFolio",
@@ -343,7 +343,7 @@ const addProject = async (req, res, next) => {
   try {
     const { url, title, image, description, technology } = req.body;
    
-    const user = await User.findOne();
+    const user = await User.findOne({});
       
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "myPortFolio",
@@ -374,7 +374,7 @@ const deleteTimeline = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
     const timelineImage = user.timeline.find((item) => item._id == id);
 
@@ -399,7 +399,7 @@ const deleteAchivement = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
     const achivement = user.achivements.find((item) => item._id == id);
 
@@ -422,7 +422,7 @@ const deleteProject = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const user = await User.findOne();
+    const user = await User.findOne({});
 
     const project = user.projects.find((item) => item._id == id);
     if (project) {

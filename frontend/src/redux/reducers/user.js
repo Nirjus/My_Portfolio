@@ -6,7 +6,7 @@ const initialState = {
 
 export const userReducer = createReducer(initialState, {
     GET_USER_REQUEST: (state) => {
-        state.loading = false;
+        state.loading = true;
     },
     GET_USER_SUCCESS: (state, action) => {
         state.loading = false;

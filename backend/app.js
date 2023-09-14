@@ -15,6 +15,9 @@ app.use(cors({
     credentials: true,
 }))
 
+app.use("/api/user", userRouter);
+app.use("/api/seed", seedUser);
+
 
 app.use("/test", (req, res) => {
     res.status(200).json({
@@ -22,9 +25,6 @@ app.use("/test", (req, res) => {
         message: "Backend is running"
     })
 })
-
-app.use("/api/user", userRouter);
-app.use("/api/seed", seedUser);
 
 //  client error
 app.use((req, res, next) => {

@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getUser());
-    dispatch(loadUser());
+    // dispatch(loadUser());
   }, [dispatch]);
 
   return (

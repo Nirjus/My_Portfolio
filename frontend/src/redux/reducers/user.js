@@ -44,16 +44,15 @@ export const loginReducer = createReducer(
 
     LOAD_USER_REQUEST: (state) => {
         state.loading = true;
-        state.isAdmin = false;
     },
     LOAD_USER_SUCCESS: (state, action) => {
         state.loading = false;
-        state.isAdmin = true;
+       
         state.user = action.payload;
     },
     LOAD_USER_FAILURE: (state, action) => {
         state.loading = false;
-        state.isAdmin = false;
+       
         state.error = action.payload;
     },
 

@@ -1,1 +1,1 @@
-export const server = "https://my-portfolio-backend-sycy.onrender.com"
+export const server = "https://nice-jade-worm-wear.cyclic.cloud"

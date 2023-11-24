@@ -40,7 +40,7 @@ const alert = useAlert();
       initial={{opacity:0 }}
       animate={{opacity:1}}
       transition={{duration:0.7, type:"tween", delay:0.3}}
-      className=" w-[40%] flex justify-center h-[80vh]  items-center bg-[#1e2d38a8] rounded-l-[200px] max-1000px:w-[90%] ">
+      className=" w-[40%] flex justify-center h-[80vh]  items-center bg-[#1e2d3879] rounded-l-[200px] max-1000px:w-[90%] ">
         <form action="" onSubmit={contactFormHandler} className=" flex max-sm:w-[80%] flex-col gap-5 ">
           <h4 className=" text-center text-[50px] text-white font-[800] uppercase tracking-wider max-sm:text-[30px]">Contact Us</h4>
           <motion.input
@@ -52,7 +52,7 @@ const alert = useAlert();
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className=" outline-none  p-3 rounded-md font-bold text-[#fff] text-[19px] placeholder:text-white bg-[#5571939a]"
+            className=" outline-none  p-3 rounded-md font-bold text-[#fff] text-[19px] placeholder:text-white bg-[#42587232]"
           />
           <motion.input
           initial={{opacity:0, x:-600}}
@@ -63,7 +63,7 @@ const alert = useAlert();
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className=" outline-none  p-3 rounded-md font-bold text-white placeholder:text-white text-[19px] bg-[#55719392]"
+            className=" outline-none  p-3 rounded-md font-bold text-white placeholder:text-white text-[19px] bg-[#42587232]"
           />
           <motion.textarea
           initial={{opacity:0, x:-500}}
@@ -74,7 +74,7 @@ const alert = useAlert();
             rows="5"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className=" outline-none  p-3 rounded-md font-bold text-white placeholder:text-white text-[19px] bg-[#55719387]"
+            className=" outline-none  p-3 rounded-md font-bold text-white placeholder:text-white text-[19px] bg-[#42587232]"
           ></motion.textarea>
          <motion.div
          initial={{opacity:0, y:-800}}

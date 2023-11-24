@@ -9,11 +9,13 @@ import { styles } from "../../styles";
 import { Link } from "react-router-dom";
 import AchivementCard from "../AchivementCard/AchivementCard";
 import myImg from "../../assets/images/my pic.png";
+import img from "../../assets/images/boy sitting1.png";
+
 const Home = ({ timeline, achivements, skills }) => {
   return (
     <div className="home">
       <div className=" top-0 z-[20] sticky">
-      <div className=" w-full h-[40px] flex justify-end px-[20px] max-800px:justify-center items-center flex-row gap-10 text-[cyan] bg-gradient-to-l from-[#ffffff3e] to-[#ffffff14]  font-bold absolute top-0  z-10">
+      <div className=" w-full h-[40px] flex justify-end px-[20px] max-800px:justify-center items-center flex-row gap-10 text-[cyan] bg-gradient-to-l from-[#ffffff25] to-[#ffffff14]  font-bold absolute top-0  z-10">
         <HashLink to={"/#timeline"} className=" hover:text-[#27baf9] duration-300">Timeline</HashLink>
         <HashLink to={"/#skills"}  className=" hover:text-[#27baf9] duration-300">Skills</HashLink>
         <HashLink to={"/#achivements"}  className=" hover:text-[#27baf9] duration-300">Achivements</HashLink>
@@ -81,7 +83,7 @@ const Home = ({ timeline, achivements, skills }) => {
         <TimeLine timeLine={timeline} />
       </div>
 
-      <div className="homeSkills w-full min-h-[140vh] px-10 py-10 max-800px:bg-[#060310b5]"  id="skills" >
+      <div className="homeSkills w-full min-h-[140vh] px-10 py-10 max-800px:bg-[#060310]"  id="skills" >
        <div className=" max-800px:hidden">
        <StarsCanvas />
        </div>
@@ -94,8 +96,10 @@ const Home = ({ timeline, achivements, skills }) => {
         >
           SKILLS
         </motion.h2>
-
+     <div className=" flex 1000px:flex-row flex-col gap-5">
         <SkillBolls skills={skills} />
+        <img src={img} alt={"skillphoto"} className=" 1000px:translate-x-[-150px] h-[550px] 1000px:w-[80%] object-contain " />
+        </div>
       </div>
       <div className="homeachivement w-full min-h-screen h-auto p-2 " id="achivements">
         <motion.h3

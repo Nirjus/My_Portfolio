@@ -8,7 +8,7 @@ const AchivementCard = ({ url, imgSrc, title, isAdmin = false }) => {
     initial={{x:400,opacity: 0}}
         animate={{x:0, opacity:1}}
         transition={{type:"spring",duration:2, delay:0.4}}>
-      <div  className=" w-[280px] transition-[0.5s] delay-100 duration-500 m-4 flex flex-col hover:scale-110 hover:shadow-xl rounded-lg hover:bg-[#7575762c] max-800px:w-[200px]">
+      <div  className=" w-[280px] transition-all  duration-300 m-4 flex flex-col hover:scale-110 hover:shadow-xl rounded-lg hover:bg-[#7575762c] max-800px:w-[200px]">
       <a
         href={url}
         target="blank"

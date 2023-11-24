@@ -25,6 +25,9 @@ const alert = useAlert();
       dispatch({ type: "CLEAR_ERRORS" });
     }
     if (alertMessage) {
+      setName("");
+      setEmail("");
+      setMessage("");
       alert.success(alertMessage);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
